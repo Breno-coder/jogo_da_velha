@@ -1,6 +1,7 @@
 package com.example.jogo_da_velha.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -121,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
     {
         @Override
         public void onClick(View v) {
-
+            Intent currentlyView = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(currentlyView);
         }
     };
 
