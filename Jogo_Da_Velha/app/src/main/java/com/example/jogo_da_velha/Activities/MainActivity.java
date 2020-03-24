@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnReset;
     private TextView result;
     private char player;
+    private int turn = 0;
     private int count = 1;
     private int[][] game = {{0,0,0},{0,0,0},{0,0,0}};
 
@@ -38,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.textView);
         btnReset = findViewById(R.id.buttonReset);
 
+        btnReset.setOnClickListener(resetClick);
 
-        for(int i = 0; i<9; i++)
+        for(count = 0; count<9; count++)
         {
-            btn[i].setOnClickListener(CLICKING);
+            btn[count].setOnClickListener(CLICKING);
         }
     }
 
@@ -115,14 +117,24 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private  View.OnClickListener resetClick = new View.OnClickListener()
+    {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+
     public void getImage(int count)
     {
         if (count%2 == 0)
         {
             this.player = 'O';
+            this.turn = 2;
         }
         else {
             this.player = 'X';
+            this.turn = 1;
         }
     }
 }
